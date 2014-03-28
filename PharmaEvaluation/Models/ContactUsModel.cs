@@ -9,27 +9,12 @@ using System.Web.Security;
 namespace PharmaEvaluation.Models
 {
     [Table("ContactUsSubmissions")]
-    public class ContactUsSubmission
+    public class ContactUsSubmissionModel
     {
-        public string FirstName { get; set; }
-        public string Surname { get; set; }
-        public string TelephoneNumber { get; set; }
-        public string Email { get; set; }
-        public string Message { get; set; }        
-    }
-
-    public class ContactUsContext : DbContext
-    {
-        public ContactUsContext()
-            : base("DefaultConnection")
-        {
-        }
-
-        public DbSet<ContactUsSubmission> cuSub { get; set; }
-    }
-
-    public class ContactSubmissionModel
-    {
+        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public int ContactUsId { get; set; }
+       
         [Required]
         [Display(Name = "First name")]
         public string FirstName { get; set; }
@@ -39,7 +24,7 @@ namespace PharmaEvaluation.Models
         public string Surname { get; set; }
 
         [Display(Name = "Telephone Number")]
-        public string TelNumber { get; set; }
+        public string TelephoneNumber { get; set; }
 
         [Required]
         [Display(Name = "Email Address")]
@@ -47,10 +32,19 @@ namespace PharmaEvaluation.Models
 
         [Required]
         [Display(Name = "Message")]
-        public string Message { get; set; }      
-
-
+        public string Message { get; set; }   
     }
+
+    public class ContactUsContext : DbContext
+    {
+        public ContactUsContext()
+            : base("DefaultConnection")
+        {
+        }
+
+        public DbSet<ContactUsSubmissionModel> cuSub { get; set; }
+    }
+
 
 
 

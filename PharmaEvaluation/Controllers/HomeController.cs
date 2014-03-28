@@ -20,9 +20,9 @@ namespace PharmaEvaluation.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Download()
         {
-            ViewBag.Message = "Your app description page.";
+            ViewBag.Message = "Click on the link below to begin the download:";
 
             return View();
         }

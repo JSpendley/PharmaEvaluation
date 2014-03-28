@@ -188,7 +188,8 @@ ul#menu {
 }
 
     ul#menu li {        
-              
+        display:inline;
+
         padding-left: 15px;
     }
 
