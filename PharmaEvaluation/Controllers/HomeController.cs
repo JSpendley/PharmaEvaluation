@@ -10,8 +10,13 @@ namespace PharmaEvaluation.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+            ViewBag.Title = "Welcome";           
 
+            return View();
+        }
+
+        public ActionResult TestView()
+        {
             return View();
         }
 

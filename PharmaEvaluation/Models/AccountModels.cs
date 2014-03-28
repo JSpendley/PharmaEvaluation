@@ -8,9 +8,9 @@ using System.Web.Security;
 
 namespace PharmaEvaluation.Models
 {
-    public class UsersContext : DbContext
+    public class PharmaContext : DbContext
     {
-        public UsersContext()
+        public PharmaContext()
             : base("DefaultConnection")
         {
         }
@@ -25,6 +25,10 @@ namespace PharmaEvaluation.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
         public string UserName { get; set; }
+        public string FirstName { get; set; }
+        public string Surname { get; set; }
+        public string CellphoneNumber { get; set; }
+        public string Email { get; set; }
     }
 
     public class RegisterExternalLoginModel
@@ -86,6 +90,23 @@ namespace PharmaEvaluation.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Surname")]
+        public string Surname { get; set; }
+
+        [Required]
+        [Display(Name = "Cellphone number")]
+        public string CellphoneNumber { get; set; }
+
+        [Display(Name = "Email Address")]
+        public string Email { get; set; }
+
+
     }
 
     public class ExternalLogin
@@ -94,4 +115,6 @@ namespace PharmaEvaluation.Models
         public string ProviderDisplayName { get; set; }
         public string ProviderUserId { get; set; }
     }
+
+        
 }

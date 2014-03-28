@@ -76,10 +76,13 @@ namespace PharmaEvaluation.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password,
+                                                     new { FirstName = model.FirstName, Surname = model.Surname, 
+                                                            CellphoneNumber = model.CellphoneNumber, Email = model.Email });
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");
                 }
@@ -93,6 +96,7 @@ namespace PharmaEvaluation.Controllers
             return View(model);
         }
 
+       
         //
         // POST: /Account/Disassociate
 
@@ -263,7 +267,7 @@ namespace PharmaEvaluation.Controllers
             if (ModelState.IsValid)
             {
                 // Insert a new user into the database
-                using (UsersContext db = new UsersContext())
+                using (PharmaContext db = new PharmaContext())
                 {
                     UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
                     // Check if user already exists

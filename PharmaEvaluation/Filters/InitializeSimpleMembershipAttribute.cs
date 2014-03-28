@@ -25,11 +25,11 @@ namespace PharmaEvaluation.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<UsersContext>(null);
+                Database.SetInitializer<PharmaContext>(null);
 
                 try
                 {
-                    using (var context = new UsersContext())
+                    using (var context = new PharmaContext())
                     {
                         if (!context.Database.Exists())
                         {
