@@ -49,8 +49,8 @@
         <div class="editor-label">
             @Html.LabelFor(model => model.Message)
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Message)
+        <div style=>
+            @Html.TextAreaFor(model => model.Message)
             @Html.ValidationMessageFor(model => model.Message)
         </div>
 

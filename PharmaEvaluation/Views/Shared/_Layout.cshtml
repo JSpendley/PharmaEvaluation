@@ -21,18 +21,18 @@
                     </section>
                     </div>
 
-                <div class="float-right">
+                <div class="float-left">
                     <nav>
-                        <ol id="menu">
+                        <ul id="menu">
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             @if (Request.IsAuthenticated)
                             {
                                 <li>
-                                    @Html.ActionLink("Home", "Download", "Home")
+                                    @Html.ActionLink("Download", "Download", "Home")
                                 </li>
                             }
                             <li>@Html.ActionLink("Contact", "Create", "ContactUs")</li>
-                        </ol>
+                        </ul>
                     </nav>
                 </div>
                
